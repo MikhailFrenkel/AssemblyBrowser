@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AssemblyBrowser.Reader.Model
 {
-    class Property
+    public class Property
     {
     }
 }

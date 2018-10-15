@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AssemblyBrowser.Reader\AssemblyBrowser.Reader.csproj">
+      <Project>{f2ee2591-7f91-4e54-bacc-6547e2fc816d}</Project>
+      <Name>AssemblyBrowser.Reader</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

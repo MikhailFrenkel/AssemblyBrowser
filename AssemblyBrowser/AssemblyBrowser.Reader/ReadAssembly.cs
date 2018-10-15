@@ -9,7 +9,16 @@ namespace AssemblyBrowser.Reader
     {
         public void GetInformation(string pathDll)
         {
-            var asm = Assembly.LoadFrom(pathDll);
+            try
+            {
+                var asm = Assembly.LoadFrom(pathDll);
+            }
+            catch
+            {
+                throw;
+            }
+
+            
         }
     }
 }
