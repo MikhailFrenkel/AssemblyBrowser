@@ -10,7 +10,8 @@ namespace AssemblyBrowser.Reader
 {
     public class ReadAssembly
     {
-        private List<Namespace> _namespaces;
+        private readonly List<Namespace> _namespaces;
+        private Assembly _asm;
 
         public ReadAssembly()
         {
@@ -19,8 +20,14 @@ namespace AssemblyBrowser.Reader
 
         public void GetInformation(string pathDll)
         {
-            var asm = Assembly.LoadFrom(pathDll);
-            foreach (var type in asm.DefinedTypes)
+            _asm = Assembly.LoadFrom(pathDll);
+            LoadNamespaces();
+            LoadDataTypes();
+        }
+
+        private void LoadNamespaces()
+        {
+            foreach (var type in _asm.DefinedTypes)
             {
                 if (_namespaces.Find(x => x.Name == type.Namespace) == null && type.Namespace != null)
                 {
@@ -28,6 +35,17 @@ namespace AssemblyBrowser.Reader
                     {
                         Name = type.Namespace
                     });
+                }
+            }
+        }
+
+        private void LoadDataTypes()
+        {
+            foreach (var ns in _namespaces)
+            {
+                foreach (var type in _asm.DefinedTypes.Where(x => x.Namespace == ns.Name))
+                {
+                    ns.DataTypes.Add(new DataType(type));
                 }
             }
         }

@@ -9,7 +9,7 @@ namespace AssemblyBrowser.Reader.Models
 
         public Namespace()
         {
-
+            DataTypes = new List<DataType>();
         }
     }
 }
