@@ -22,7 +22,7 @@ namespace AssemblyBrowser.WpfApplication
     public partial class MainWindow : Window
     {
         private readonly ReadAssembly _readAssembly;
-        private const string Dll = "D:/учёба/3 курс/5 сем/СПП/2 лаба/Plugins/Plugins/Generators/bin/Debug/netstandard2.0/Generators.dll";
+        private const string Dll = @"D:\учёба\3 курс\5 сем\СПП\1 лаба\Tracer\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll";
 
         public MainWindow()
         {
@@ -37,6 +37,11 @@ namespace AssemblyBrowser.WpfApplication
 
             }
 
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

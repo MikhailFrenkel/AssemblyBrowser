@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace AssemblyBrowser.Reader.Model
+namespace AssemblyBrowser.Reader.Models
 {
     public class Namespace
     {
         public string Name { get; set; }
         public ICollection<DataType> DataTypes { get; set; }
+
+        public Namespace()
+        {
+
+        }
     }
 }
