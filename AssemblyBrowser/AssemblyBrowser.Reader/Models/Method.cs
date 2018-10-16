@@ -18,12 +18,12 @@ namespace AssemblyBrowser.Reader.Models
                 {
                     Signature += "static ";
                 }
-                else if (method.IsVirtual)
+                else if (method.IsVirtual && !method.IsFinal)
                 {
                     Signature += "virtual ";
                 }
 
-                Signature += method.ToString() + ";";
+                Signature += method + ";";
             }
         }
     }
