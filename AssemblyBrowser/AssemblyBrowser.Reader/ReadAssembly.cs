@@ -15,11 +15,13 @@ namespace AssemblyBrowser.Reader
             _namespaces = new List<Namespace>();
         }
 
-        public void GetInformation(string pathDll)
+        public List<Namespace> GetInformation(string pathDll)
         {
             _asm = Assembly.LoadFrom(pathDll);
             LoadNamespaces();
             LoadDataTypes();
+
+            return _namespaces;
         }
 
         private void LoadNamespaces()
