@@ -20,37 +20,34 @@ namespace AssemblyBrowser.Reader.Models
 
         private void GetFields(ref Type type)
         {
+            Fields = new List<Field>();
             var fields = type.GetFields();
-            if (fields.Length != 0)
+            
+            foreach (var field in fields)
             {
-                Fields = new List<Field>();
-                foreach (var field in fields)
-                {
-                    Fields.Add(new Field(field));
-                }
+                Fields.Add(new Field(field));
             }
         }
 
         private void GetProperties(ref Type type)
         {
+            Properties = new List<Property>();
             var properties = type.GetProperties();
-            if (properties.Length != 0)
+            
+            foreach (var property in properties)
             {
-                Properties = new List<Property>();
-                foreach (var property in properties)
-                {
-                    Properties.Add(new Property(property));
-                }
+                Properties.Add(new Property(property));
             }
         }
 
         private void GetMethods(ref Type type)
         {
+            Methods = new List<Method>();
             var methods = type.GetMethods();
-            if (methods.Length != 0)
+
+            foreach (var method in methods)
             {
-                Methods = new List<Method>();
-                foreach (var method in methods)
+                if (!method.IsSpecialName)
                 {
                     Methods.Add(new Method(method));
                 }

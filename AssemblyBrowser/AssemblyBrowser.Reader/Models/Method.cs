@@ -11,20 +11,17 @@ namespace AssemblyBrowser.Reader.Models
         public Method(MethodInfo method)
         {
             Name = method.Name;
-            if (!method.IsSpecialName)
+            Signature = "public ";
+            if (method.IsStatic)
             {
-                Signature = "public ";
-                if (method.IsStatic)
-                {
-                    Signature += "static ";
-                }
-                else if (method.IsVirtual && !method.IsFinal)
-                {
-                    Signature += "virtual ";
-                }
-
-                Signature += method + ";";
+                Signature += "static ";
             }
+            else if (method.IsVirtual && !method.IsFinal)
+            {
+                Signature += "virtual ";
+            }
+
+            Signature += method + ";";
         }
     }
 }

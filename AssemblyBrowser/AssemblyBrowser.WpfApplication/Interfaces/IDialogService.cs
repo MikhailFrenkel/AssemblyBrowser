@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AssemblyBrowser.WpfApplication.Interfaces
 {
-    interface IDialogService
+    public interface IDialogService
     {
         void ShowMessage(string message);
         string FilePath { get; set; }
